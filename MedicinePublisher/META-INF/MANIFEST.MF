@@ -7,3 +7,5 @@ Bundle-Activator: sa.assignment1.medicinepublisher.MedicineActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy
+Require-Bundle: MedicineDatabase;bundle-version="1.0.0"
+Export-Package: sa.assignment1.medicinepublisher
