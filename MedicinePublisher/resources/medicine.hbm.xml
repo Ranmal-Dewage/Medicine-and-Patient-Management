@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sa.assignment1.medicineModel.MedicineModel" table="medicine">
+        <id name="id" type="java.lang.Integer">
+            <column name="medId" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="medName" />
+        </property>
+        <property name="lastname" type="java.lang.Integer">
+            <column name="medQuantity" />
+        </property>
+    </class>
+</hibernate-mapping>
