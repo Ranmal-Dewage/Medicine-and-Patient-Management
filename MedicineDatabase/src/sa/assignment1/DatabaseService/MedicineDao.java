@@ -3,17 +3,30 @@
  */
 package sa.assignment1.DatabaseService;
 
-import sa.assignment1.medicineModel.MedicineModel;
+import java.util.HashMap;
+
+import org.bson.Document;
+
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 
 /**
- * @author it16169036
- *
+ * @author vimukthi_r
+ * @Date Mar 7, 2019
+ * @Description
+ * @Version
  */
 public interface MedicineDao {
 
-	public boolean save( MedicineModel model);
+	public MongoClient getMongoClient();
 
-	public boolean deduct( int id, int quantity);
+	public MongoCollection<Document> getMongoCollection(String dbName, String collectionName, MongoClient mongoClient);
 
-	public MedicineModel get( int id);
+	public boolean save(HashMap<String, String> data, MongoCollection<Document> mongoCollection);
+
+	public boolean update(String medicineId, HashMap<String, String> data, MongoCollection<Document> mongoCollection);
+
+	public Document findById(String medicineId, MongoCollection<Document> mongoCollection);
+
+	public boolean deleteById(String medicineId, MongoCollection<Document> mongoCollection);
 }

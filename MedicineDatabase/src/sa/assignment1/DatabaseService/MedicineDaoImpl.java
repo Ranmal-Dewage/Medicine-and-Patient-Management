@@ -1,80 +1,99 @@
+/**
+ * 
+ */
 package sa.assignment1.DatabaseService;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Objects;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
+import org.bson.Document;
 
-import sa.assignment1.medicineModel.MedicineModel;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 
+/**
+ * @author vimukthi_r
+ * @Date Mar 7, 2019
+ * @Description
+ * @Version
+ */
 public class MedicineDaoImpl implements MedicineDao {
-	List<MedicineModel> medicineList = new ArrayList<>();
-	Session session = null;
+
+	private static MongoClient mongoClient = null;
 
 	@Override
-	public boolean save(MedicineModel model) {
+	public synchronized MongoClient getMongoClient() {
+		if (Objects.nonNull(mongoClient)) {
+			mongoClient = new MongoClient("localhost", 27017);
+		}
+		return mongoClient;
+	}
+
+	@Override
+	public MongoCollection<Document> getMongoCollection(String dbName, String collectionName, MongoClient mongoClient) {
+		MongoCollection<Document> mongoCollection = null;
 		try {
-			session.save(model);
+			MongoDatabase database = mongoClient.getDatabase(dbName);
+			mongoCollection = database.getCollection(collectionName);
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return mongoCollection;
+	}
+
+	@Override
+	public boolean save(HashMap<String, String> data, MongoCollection<Document> mongoCollection) {
+		try {
+			// create new document
+			Document newDocument = new Document();
+			// insert new data into the document
+			data.forEach(newDocument::append);
+			// insert into collection
+			mongoCollection.insertOne(newDocument);
+
 			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
 		}
 		return false;
 	}
 
 	@Override
-	public boolean deduct(int id, int quantity) {
-		MedicineModel medicineModel = null;
+	public boolean update(String medicineId, HashMap<String, String> data, MongoCollection<Document> mongoCollection) {
 		try {
-			medicineModel = session.get(MedicineModel.class, id);
-			if (Objects.nonNull(medicineModel) && medicineModel.getQuantity() >= quantity) {
-				medicineModel.setQuantity(medicineModel.getQuantity() - quantity);
-				return true;
-			} else {
-				return false;
-			}
+			Document setData = new Document();
+			data.forEach(setData::append);
+			// To update single Document
+			mongoCollection.updateOne(Filters.eq("medicineId", medicineId), new Document("$set", setData));
+
+			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
 		}
 		return false;
 	}
 
 	@Override
-	public MedicineModel get(int id) {
-		MedicineModel medicineModel = null;
+	public Document findById(String medicineId, MongoCollection<Document> mongoCollection) {
+		Document doc = null;
 		try {
-			medicineModel = session.get(MedicineModel.class, id);
-			if (Objects.nonNull(medicineModel)) {
-				return medicineModel;
-			} else {
-				return null;
-			}
+			doc = mongoCollection.find(Filters.eq("medicineId", medicineId)).first();
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
 		}
-		return null;
+		return doc;
 	}
 
-	private static Session config() {
-
+	@Override
+	public boolean deleteById(String medicineId, MongoCollection<Document> mongoCollection) {
 		try {
-			Configuration config = new Configuration();
-			config.configure();
-			config.addAnnotatedClass(MedicineModel.class);
-			config.addResource("hibernate.cfg.xml"); //medicine.hbm.xml
-
-			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties())
-					.build();
-			SessionFactory factory = config.buildSessionFactory(serviceRegistry);
-			return factory.openSession();
+			mongoCollection.deleteOne(Filters.eq("medicineId", medicineId));
+			return true;
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.err.println(e);
 		}
-		return null;
+		return false;
 	}
 }
