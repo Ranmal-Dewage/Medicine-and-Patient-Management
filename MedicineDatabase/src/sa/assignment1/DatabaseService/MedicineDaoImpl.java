@@ -12,6 +12,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Indexes;
 
 /**
  * @author vimukthi_r
@@ -22,6 +23,7 @@ import com.mongodb.client.model.Filters;
 public class MedicineDaoImpl implements MedicineDao {
 
 	private static MongoClient mongoClient = null;
+	private static final String MEDICINEID = "medicineId";
 
 	@Override
 	public synchronized MongoClient getMongoClient() {
@@ -37,6 +39,7 @@ public class MedicineDaoImpl implements MedicineDao {
 		try {
 			MongoDatabase database = mongoClient.getDatabase(dbName);
 			mongoCollection = database.getCollection(collectionName);
+			mongoCollection.createIndex(Indexes.ascending(MEDICINEID));
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -66,7 +69,7 @@ public class MedicineDaoImpl implements MedicineDao {
 			Document setData = new Document();
 			data.forEach(setData::append);
 			// To update single Document
-			mongoCollection.updateOne(Filters.eq("medicineId", medicineId), new Document("$set", setData));
+			mongoCollection.updateOne(Filters.eq(MEDICINEID, medicineId), new Document("$set", setData));
 
 			return true;
 		} catch (Exception e) {
@@ -79,7 +82,7 @@ public class MedicineDaoImpl implements MedicineDao {
 	public Document findById(String medicineId, MongoCollection<Document> mongoCollection) {
 		Document doc = null;
 		try {
-			doc = mongoCollection.find(Filters.eq("medicineId", medicineId)).first();
+			doc = mongoCollection.find(Filters.eq(MEDICINEID, medicineId)).first();
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -89,7 +92,7 @@ public class MedicineDaoImpl implements MedicineDao {
 	@Override
 	public boolean deleteById(String medicineId, MongoCollection<Document> mongoCollection) {
 		try {
-			mongoCollection.deleteOne(Filters.eq("medicineId", medicineId));
+			mongoCollection.deleteOne(Filters.eq(MEDICINEID, medicineId));
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
