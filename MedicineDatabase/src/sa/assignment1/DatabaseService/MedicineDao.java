@@ -20,13 +20,13 @@ public interface MedicineDao {
 
 	public MongoClient getMongoClient();
 
-	public MongoCollection<Document> getMongoCollection(String dbName, String collectionName, MongoClient mongoClient);
+	public MongoCollection<Document> getMongoCollection();
 
-	public boolean save(HashMap<String, String> data, MongoCollection<Document> mongoCollection);
+	public boolean save(HashMap<String, String> data);
 
-	public boolean update(String medicineId, HashMap<String, String> data, MongoCollection<Document> mongoCollection);
+	public boolean update(String medicineId, HashMap<String, String> data);
 
-	public Document findById(String medicineId, MongoCollection<Document> mongoCollection);
+	public Document findById(String medicineId);
 
-	public boolean deleteById(String medicineId, MongoCollection<Document> mongoCollection);
+	public boolean deleteById(String medicineId);
 }

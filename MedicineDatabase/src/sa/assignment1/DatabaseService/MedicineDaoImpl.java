@@ -24,7 +24,7 @@ public class MedicineDaoImpl implements MedicineDao {
 
 	private static MongoClient mongoClient = null;
 	private static final String MEDICINEID = "medicineId";
-
+	
 	@Override
 	public synchronized MongoClient getMongoClient() {
 		if (Objects.nonNull(mongoClient)) {
@@ -34,11 +34,11 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public MongoCollection<Document> getMongoCollection(String dbName, String collectionName, MongoClient mongoClient) {
+	public MongoCollection<Document> getMongoCollection() {
 		MongoCollection<Document> mongoCollection = null;
 		try {
-			MongoDatabase database = mongoClient.getDatabase(dbName);
-			mongoCollection = database.getCollection(collectionName);
+			MongoDatabase database = getMongoClient().getDatabase("Pharmacy");
+			mongoCollection = database.getCollection("Medicine");
 			mongoCollection.createIndex(Indexes.ascending(MEDICINEID));
 		} catch (Exception e) {
 			System.err.println(e);
@@ -47,14 +47,14 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public boolean save(HashMap<String, String> data, MongoCollection<Document> mongoCollection) {
+	public boolean save(HashMap<String, String> data) {
 		try {
 			// create new document
 			Document newDocument = new Document();
 			// insert new data into the document
 			data.forEach(newDocument::append);
 			// insert into collection
-			mongoCollection.insertOne(newDocument);
+			getMongoCollection().insertOne(newDocument);
 
 			return true;
 		} catch (Exception e) {
@@ -64,12 +64,12 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public boolean update(String medicineId, HashMap<String, String> data, MongoCollection<Document> mongoCollection) {
+	public boolean update(String medicineId, HashMap<String, String> data) {
 		try {
 			Document setData = new Document();
 			data.forEach(setData::append);
 			// To update single Document
-			mongoCollection.updateOne(Filters.eq(MEDICINEID, medicineId), new Document("$set", setData));
+			getMongoCollection().updateOne(Filters.eq(MEDICINEID, medicineId), new Document("$set", setData));
 
 			return true;
 		} catch (Exception e) {
@@ -79,10 +79,10 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public Document findById(String medicineId, MongoCollection<Document> mongoCollection) {
+	public Document findById(String medicineId) {
 		Document doc = null;
 		try {
-			doc = mongoCollection.find(Filters.eq(MEDICINEID, medicineId)).first();
+			doc = getMongoCollection().find(Filters.eq(MEDICINEID, medicineId)).first();
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -90,9 +90,9 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public boolean deleteById(String medicineId, MongoCollection<Document> mongoCollection) {
+	public boolean deleteById(String medicineId) {
 		try {
-			mongoCollection.deleteOne(Filters.eq(MEDICINEID, medicineId));
+			getMongoCollection().deleteOne(Filters.eq(MEDICINEID, medicineId));
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
