@@ -1,17 +1,15 @@
 package sa.assignment1.medicinepublisher;
 
-import org.bson.Document;
-
 public interface MedicinePublish {
 
-	public String publishService();
+	public void add();
 
-	public boolean add();
+	public void deduct();
 
-	public boolean deduct(int id, int quantity);
+	public void increase();
 
-	public Document get(int id);
+	public void get();
 
-	public boolean deleteById(String id);
+	public void deleteById();
 
 }

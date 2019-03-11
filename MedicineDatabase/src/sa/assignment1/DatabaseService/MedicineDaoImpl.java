@@ -4,15 +4,7 @@
 package sa.assignment1.DatabaseService;
 
 import java.util.HashMap;
-import java.util.Objects;
-
-import org.bson.Document;
-
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Indexes;
+import java.util.Map;
 
 /**
  * @author vimukthi_r
@@ -22,40 +14,13 @@ import com.mongodb.client.model.Indexes;
  */
 public class MedicineDaoImpl implements MedicineDao {
 
-	private static MongoClient mongoClient = null;
-	private static final String MEDICINEID = "medicineId";
+	private static Map<String, Map<String, String>> dataList = new HashMap<>();
 	
 	@Override
-	public synchronized MongoClient getMongoClient() {
-		if (Objects.nonNull(mongoClient)) {
-			mongoClient = new MongoClient("localhost", 27017);
-		}
-		return mongoClient;
-	}
-
-	@Override
-	public MongoCollection<Document> getMongoCollection() {
-		MongoCollection<Document> mongoCollection = null;
+	public boolean save(Map<String, String> data) {
+		String medicineId = data.get("medicineId");
 		try {
-			MongoDatabase database = getMongoClient().getDatabase("Pharmacy");
-			mongoCollection = database.getCollection("Medicine");
-			mongoCollection.createIndex(Indexes.ascending(MEDICINEID));
-		} catch (Exception e) {
-			System.err.println(e);
-		}
-		return mongoCollection;
-	}
-
-	@Override
-	public boolean save(HashMap<String, String> data) {
-		try {
-			// create new document
-			Document newDocument = new Document();
-			// insert new data into the document
-			data.forEach(newDocument::append);
-			// insert into collection
-			getMongoCollection().insertOne(newDocument);
-
+			dataList.put(medicineId, data);
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
@@ -65,34 +30,24 @@ public class MedicineDaoImpl implements MedicineDao {
 
 	@Override
 	public boolean update(String medicineId, HashMap<String, String> data) {
-		try {
-			Document setData = new Document();
-			data.forEach(setData::append);
-			// To update single Document
-			getMongoCollection().updateOne(Filters.eq(MEDICINEID, medicineId), new Document("$set", setData));
-
-			return true;
-		} catch (Exception e) {
-			System.err.println(e);
-		}
-		return false;
+		return save(data);
 	}
 
 	@Override
-	public Document findById(String medicineId) {
-		Document doc = null;
+	public Map<String, String> findById(String medicineId) {
+		Map<String, String> data = new HashMap<>();
 		try {
-			doc = getMongoCollection().find(Filters.eq(MEDICINEID, medicineId)).first();
+			data = dataList.get(medicineId);
 		} catch (Exception e) {
 			System.err.println(e);
 		}
-		return doc;
+		return data;
 	}
 
 	@Override
 	public boolean deleteById(String medicineId) {
 		try {
-			getMongoCollection().deleteOne(Filters.eq(MEDICINEID, medicineId));
+			dataList.remove(medicineId);
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);

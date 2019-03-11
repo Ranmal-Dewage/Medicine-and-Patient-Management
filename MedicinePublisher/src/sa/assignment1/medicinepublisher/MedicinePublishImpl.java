@@ -1,9 +1,8 @@
 package sa.assignment1.medicinepublisher;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-
-import org.bson.Document;
 
 import sa.assignment1.DatabaseService.MedicineDao;
 
@@ -12,18 +11,13 @@ public class MedicinePublishImpl implements MedicinePublish {
 	MedicineDao medicineDao = null;
 	Scanner scanner = new Scanner(System.in);
 	HashMap<String, String> medicineModel = new HashMap<>();
-	
-	@Override
-	public String publishService() {
-		return "Execute the service publish of ServicePublish";
-	}
 
 	public MedicinePublishImpl(MedicineDao medicineDao) {
 		this.medicineDao = medicineDao;
 	}
 
 	@Override
-	public boolean add() {
+	public void add() {
 		try {
 			System.out.println("Enter medicine id: ");
 			medicineModel.put("medicineId", scanner.nextLine());
@@ -37,23 +31,78 @@ public class MedicinePublishImpl implements MedicinePublish {
 			System.out.println("ERROR : Invalid input value !!!");
 			add();
 		}
-		return (medicineDao.save(medicineModel)) ? true : false;
+		medicineDao.save(medicineModel);
 	}
 
 	@Override
-	public boolean deduct(int id, int quantity) {
-		//return medicineDao.update(medicineId, data)
-		return false;
+	public void deduct() {
+		Map<String, String> data = new HashMap<>();
+		int currentQuantity = 0;
+		int newQuantity = 0;
+		
+		System.out.println("Enter medicine id: ");
+		String id = scanner.nextLine();
+		System.out.println("Enter medicine quantity to reduce: ");
+		int quantity = scanner.nextInt();
+		
+		try {
+			data = medicineDao.findById(id);
+			currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
+			if (currentQuantity >= quantity) {
+				newQuantity = currentQuantity - quantity;
+			}
+			data.put("medicineQuantity", Integer.toString(newQuantity));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		if(medicineDao.save(data)){
+			System.out.println("New deduced sucessfully !");
+		}
 	}
 
 	@Override
-	public Document get(int id) {
-		return medicineDao.findById(Integer.toString(id));
+	public void get() {
+		System.out.println("Enter medicine id: ");
+		String id = scanner.nextLine();
+		try {
+			Map<String, String> data = medicineDao.findById(id);
+			data.forEach((key, value) -> System.out.println(key + ":" + value));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	@Override
-	public boolean deleteById(String id) {
-		return medicineDao.deleteById(id);
+	public void deleteById() {
+		System.out.println("Enter medicine id: ");
+		String id = scanner.nextLine();
+		
+		if (medicineDao.deleteById(id)) {
+			System.out.println("Medicine id:" + id + " removed sucessfully !");
+		}
 	}
 
+	@Override
+	public void increase() {
+		Map<String, String> data = new HashMap<>();
+		int currentQuantity = 0;
+		int newQuantity = 0;
+		
+		System.out.println("Enter medicine id: ");
+		String id = scanner.nextLine();
+		System.out.println("Enter medicine quantity to increase: ");
+		int quantity = scanner.nextInt();
+		
+		try {
+			data = medicineDao.findById(id);
+			currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
+			newQuantity = currentQuantity + quantity;
+			data.put("medicineQuantity", Integer.toString(newQuantity));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		if(medicineDao.save(data)){
+			System.out.println("New increased sucessfully !");
+		}
+	}
 }

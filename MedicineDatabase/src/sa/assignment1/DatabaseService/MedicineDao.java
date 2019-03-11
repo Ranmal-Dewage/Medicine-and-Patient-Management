@@ -4,11 +4,7 @@
 package sa.assignment1.DatabaseService;
 
 import java.util.HashMap;
-
-import org.bson.Document;
-
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
+import java.util.Map;
 
 /**
  * @author vimukthi_r
@@ -18,15 +14,11 @@ import com.mongodb.client.MongoCollection;
  */
 public interface MedicineDao {
 
-	public MongoClient getMongoClient();
-
-	public MongoCollection<Document> getMongoCollection();
-
-	public boolean save(HashMap<String, String> data);
+	public boolean save(Map<String, String> data);
 
 	public boolean update(String medicineId, HashMap<String, String> data);
 
-	public Document findById(String medicineId);
+	public Map<String, String> findById(String medicineId);
 
 	public boolean deleteById(String medicineId);
 }
