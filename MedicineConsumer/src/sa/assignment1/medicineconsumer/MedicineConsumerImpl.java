@@ -10,37 +10,12 @@ public class MedicineConsumerImpl implements MedicineConsumer {
 
 	public MedicineConsumerImpl(MedicinePublish medicinePublish) {
 		this.medicinePublish = medicinePublish;
-		init();
 	}
 
 	@Override
-	public void add() {
-		medicinePublish.add();
-	}
+	public void init() {
 
-	@Override
-	public void deduct() {
-		medicinePublish.deduct();
-	}
-
-	@Override
-	public void increase() {
-		medicinePublish.increase();
-	}
-
-	@Override
-	public void get() {
-		medicinePublish.get();
-	}
-
-	@Override
-	public void deleteById() {
-		medicinePublish.deleteById();
-	}
-
-	private void init() {
-		
-		try (Scanner in = new Scanner(System.in);) {
+		try (Scanner in = new Scanner(System.in)) {
 			System.out.println("--------------Welcome--------------");
 			System.out.println("What do you need to do?");
 			System.out.println("  1 - Add new medicine");
@@ -49,9 +24,9 @@ public class MedicineConsumerImpl implements MedicineConsumer {
 			System.out.println("  4 - Add medicine quantity");
 			System.out.println("  5 - Delete an existing medicine");
 			System.out.println("  6 - Exit");
-			
-			while (true) {				
-				System.out.println("Please enter a number : ");
+
+			while (true) {
+				System.out.print("Please enter a number : ");
 
 				int input = in.nextInt();
 
@@ -85,4 +60,28 @@ public class MedicineConsumerImpl implements MedicineConsumer {
 
 	}
 
+	@Override
+	public void add() {
+		medicinePublish.add();
+	}
+
+	@Override
+	public void deduct() {
+		medicinePublish.deduct();
+	}
+
+	@Override
+	public void increase() {
+		medicinePublish.increase();
+	}
+
+	@Override
+	public void get() {
+		medicinePublish.get();
+	}
+
+	@Override
+	public void deleteById() {
+		medicinePublish.deleteById();
+	}
 }

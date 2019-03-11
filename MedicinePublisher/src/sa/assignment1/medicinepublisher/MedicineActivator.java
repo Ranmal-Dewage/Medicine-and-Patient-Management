@@ -21,7 +21,6 @@ public class MedicineActivator implements BundleActivator {
 	 */
 	public void start(BundleContext context) throws Exception {
 		
-		System.out.println("Start Database Subscriber Service");
 		serviceReference = context.getServiceReference(MedicineDao.class.getName());
 		MedicineDao medicineDao = (MedicineDao) context.getService(serviceReference);
 		

@@ -1,6 +1,8 @@
 package sa.assignment1.medicineconsumer;
 
 public interface MedicineConsumer {
+	
+	public void init();
 
 	public void add();
 

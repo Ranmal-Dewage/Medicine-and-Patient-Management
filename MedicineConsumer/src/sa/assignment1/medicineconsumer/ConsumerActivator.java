@@ -19,9 +19,12 @@ public class ConsumerActivator implements BundleActivator {
 	 * BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
-		System.out.println("Start Database Subscriber Service");
+		System.out.println("Medicine Consumer Started !!!");
 		serviceReference = context.getServiceReference(MedicinePublish.class.getName());
 		MedicinePublish medicinePublish = (MedicinePublish) context.getService(serviceReference);
+		
+		MedicineConsumer medicineConsumer = new MedicineConsumerImpl(medicinePublish);
+		medicineConsumer.init();
 	}
 
 	/*
@@ -31,7 +34,8 @@ public class ConsumerActivator implements BundleActivator {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
-
+		System.out.println("Good Bye !!");
+		context.ungetService(serviceReference);
 	}
 
 }
