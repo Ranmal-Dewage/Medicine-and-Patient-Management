@@ -15,47 +15,45 @@ public class MedicineConsumerImpl implements MedicineConsumer {
 	@Override
 	public void init() {
 
-		try (Scanner in = new Scanner(System.in)) {
-			System.out.println("--------------Welcome--------------");
-			System.out.println("What do you need to do?");
-			System.out.println("  1 - Add new medicine");
-			System.out.println("  2 - Display medicine");
-			System.out.println("  3 - Withdraw medicine quantity");
-			System.out.println("  4 - Add medicine quantity");
-			System.out.println("  5 - Delete an existing medicine");
-			System.out.println("  6 - Exit");
+		Scanner in = new Scanner(System.in);
+		System.out.println("");
+		System.out.println("--------------Welcome--------------");
+		System.out.println("What do you need to do?");
+		System.out.println("  1 - Add new medicine");
+		System.out.println("  2 - Display medicine");
+		System.out.println("  3 - Withdraw medicine quantity");
+		System.out.println("  4 - Add medicine quantity");
+		System.out.println("  5 - Delete an existing medicine");
+		System.out.println("  6 - Exit");
+		System.out.println("");
 
-			while (true) {
-				System.out.print("Please enter a number : ");
+		System.out.print("Please enter a number : ");
+		int input = in.nextInt();
 
-				int input = in.nextInt();
+		while (input != 6) {
 
-				switch (input) {
-				case 1:
-					add();
-					continue;
-				case 2:
-					get();
-					continue;
-				case 3:
-					deduct();
-					continue;
-				case 4:
-					increase();
-					continue;
-				case 5:
-					deleteById();
-					continue;
-				case 6:
-					break;
-				default:
-					System.out.println("Invalid input!!!");
-					continue;
-				}
-
+			switch (input) {
+			case 1:
+				add();
+				break;
+			case 2:
+				get();
+				break;
+			case 3:
+				deduct();
+				break;
+			case 4:
+				increase();
+				break;
+			case 5:
+				deleteById();
+				break;
+			default:
+				System.out.println("Invalid input!!!");
+				break;
 			}
-		} catch (Exception e) {
-			System.out.println("Error in MedicineConsumer : " + e);
+			System.out.print("Please enter a number : ");
+			input = in.nextInt();
 		}
 
 	}

@@ -25,6 +25,7 @@ public class ConsumerActivator implements BundleActivator {
 		
 		MedicineConsumer medicineConsumer = new MedicineConsumerImpl(medicinePublish);
 		medicineConsumer.init();
+		stop(context);
 	}
 
 	/*

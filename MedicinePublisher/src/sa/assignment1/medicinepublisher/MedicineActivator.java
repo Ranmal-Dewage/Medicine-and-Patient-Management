@@ -39,6 +39,7 @@ public class MedicineActivator implements BundleActivator {
 	public void stop(BundleContext context) throws Exception {
 		System.out.println("Medicine Publisher Stoped !!!");
 		publishServiceRegistration.unregister();
+		context.ungetService(serviceReference);
 	}
 
 }
