@@ -5,6 +5,7 @@ package sa.assignment1.DatabaseService;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author vimukthi_r
@@ -15,12 +16,12 @@ import java.util.Map;
 public class MedicineDaoImpl implements MedicineDao {
 
 	private static Map<String, Map<String, String>> dataList = new HashMap<>();
-	
+
 	@Override
 	public boolean save(Map<String, String> data) {
 		String medicineId = data.get("medicineId");
 		try {
-			dataList.put(medicineId, data);
+			dataList.put(medicineId, new HashMap<String, String>(data));
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
@@ -38,6 +39,9 @@ public class MedicineDaoImpl implements MedicineDao {
 		Map<String, String> data = new HashMap<>();
 		try {
 			data = dataList.get(medicineId);
+			if(Objects.isNull(data)){
+				//handle
+			}
 		} catch (Exception e) {
 			System.err.println(e);
 		}
