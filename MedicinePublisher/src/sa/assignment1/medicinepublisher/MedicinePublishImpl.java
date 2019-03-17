@@ -2,6 +2,7 @@ package sa.assignment1.medicinepublisher;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 import sa.assignment1.DatabaseService.MedicineDao;
@@ -41,18 +42,25 @@ public class MedicinePublishImpl implements MedicinePublish {
 		String id = scanner.nextLine();
 		System.out.println("Enter medicine quantity to reduce: ");
 		int quantity = scanner.nextInt();
-		data = medicineDao.findById(id);
-		currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
-		if (currentQuantity >= quantity) {
-			newQuantity = currentQuantity - quantity;
-		}
-		data.put("medicineQuantity", Integer.toString(newQuantity));
 
-		if (medicineDao.save(data)) {
-			System.out.println("New deduced sucessfully !");
+		data = medicineDao.findById(id);
+
+		if (Objects.nonNull(data)) {
+			currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
+			if (currentQuantity >= quantity) {
+				newQuantity = currentQuantity - quantity;
+			}
+			data.put("medicineQuantity", Integer.toString(newQuantity));
+
+			if (medicineDao.save(data)) {
+				System.out.println("New deduced sucessfully !");
+				System.out.println("");
+			}
+		} else {
+			System.out.println("No medicine record found !!!");
 			System.out.println("");
 		}
-		
+
 	}
 
 	@Override
@@ -62,10 +70,14 @@ public class MedicinePublishImpl implements MedicinePublish {
 
 		String id = scanner.nextLine();
 		Map<String, String> data = medicineDao.findById(id);
-		data.forEach((key, value) -> System.out.println(key + ":" + value));
 
-		
-		System.out.println("");
+		if (Objects.nonNull(data)) {
+			data.forEach((key, value) -> System.out.println(key + ":" + value));
+			System.out.println("");
+		} else {
+			System.out.println("No medicine record found !!!");
+			System.out.println("");
+		}
 	}
 
 	@Override
@@ -76,6 +88,9 @@ public class MedicinePublishImpl implements MedicinePublish {
 
 		if (medicineDao.deleteById(id)) {
 			System.out.println("Medicine id:" + id + " removed sucessfully !");
+			System.out.println("");
+		} else {
+			System.out.println("Medicine id:" + id + " not found !");
 			System.out.println("");
 		}
 	}
@@ -93,12 +108,18 @@ public class MedicinePublishImpl implements MedicinePublish {
 		int quantity = scanner.nextInt();
 
 		data = medicineDao.findById(id);
-		currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
-		newQuantity = currentQuantity + quantity;
-		data.put("medicineQuantity", Integer.toString(newQuantity));
 
-		if (medicineDao.save(data)) {
-			System.out.println("New increased sucessfully !");
+		if (medicineDao.deleteById(id)) {
+			currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
+			newQuantity = currentQuantity + quantity;
+			data.put("medicineQuantity", Integer.toString(newQuantity));
+
+			if (medicineDao.save(data)) {
+				System.out.println("New increased sucessfully !");
+				System.out.println("");
+			}
+		} else {
+			System.out.println("Medicine id:" + id + " not found !");
 			System.out.println("");
 		}
 	}

@@ -40,7 +40,8 @@ public class MedicineDaoImpl implements MedicineDao {
 		try {
 			data = dataList.get(medicineId);
 			if(Objects.isNull(data)){
-				//handle
+				//data.put("ERROR", "No medicine record found !!!");
+				return null;
 			}
 		} catch (Exception e) {
 			System.err.println(e);
@@ -51,8 +52,10 @@ public class MedicineDaoImpl implements MedicineDao {
 	@Override
 	public boolean deleteById(String medicineId) {
 		try {
-			dataList.remove(medicineId);
-			return true;
+			if(Objects.nonNull(dataList.get(medicineId))){				
+				dataList.remove(medicineId);
+				return true;
+			}
 		} catch (Exception e) {
 			System.err.println(e);
 		}
