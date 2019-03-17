@@ -1,1 +1,1 @@
-# SA
+# Software Architecture Assignment 1
