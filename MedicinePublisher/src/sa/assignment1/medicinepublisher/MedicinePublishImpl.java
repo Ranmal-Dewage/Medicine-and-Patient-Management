@@ -19,13 +19,13 @@ public class MedicinePublishImpl implements MedicinePublish {
 	@Override
 	public void add() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter medicine id: ");
+		System.out.print("Enter medicine id         : ");
 		medicineModel.put("medicineId", scanner.nextLine());
-		System.out.println("Enter medicine name: ");
+		System.out.print("Enter medicine name       : ");
 		medicineModel.put("medicineName", scanner.nextLine());
-		System.out.println("Enter medicine quantity: ");
+		System.out.print("Enter medicine quantity   : ");
 		medicineModel.put("medicineQuantity", Integer.toString(scanner.nextInt()));
-		System.out.println("Enter medicine unit price: ");
+		System.out.print("Enter medicine unit price : ");
 		medicineModel.put("unitPrice", Double.toString(scanner.nextDouble()));
 		System.out.println("");
 		medicineDao.save(medicineModel);
@@ -38,9 +38,9 @@ public class MedicinePublishImpl implements MedicinePublish {
 		int currentQuantity = 0;
 		int newQuantity = 0;
 
-		System.out.println("Enter medicine id: ");
+		System.out.print("Enter medicine id                 : ");
 		String id = scanner.nextLine();
-		System.out.println("Enter medicine quantity to reduce: ");
+		System.out.print("Enter medicine quantity to reduce : ");
 		int quantity = scanner.nextInt();
 
 		data = medicineDao.findById(id);
@@ -83,7 +83,7 @@ public class MedicinePublishImpl implements MedicinePublish {
 	@Override
 	public void deleteById() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter medicine id: ");
+		System.out.print("Enter medicine id: ");
 		String id = scanner.nextLine();
 
 		if (medicineDao.deleteById(id)) {
@@ -102,9 +102,9 @@ public class MedicinePublishImpl implements MedicinePublish {
 		int currentQuantity = 0;
 		int newQuantity = 0;
 
-		System.out.println("Enter medicine id: ");
+		System.out.print("Enter medicine id                  : ");
 		String id = scanner.nextLine();
-		System.out.println("Enter medicine quantity to increase: ");
+		System.out.print("Enter medicine quantity to increase: ");
 		int quantity = scanner.nextInt();
 
 		data = medicineDao.findById(id);

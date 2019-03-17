@@ -6,6 +6,7 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
 import sa.assignment1.DatabaseService.MedicineDao;
+import sa.assignment1.DatabaseService.MedicineDaoImpl;
 
 public class MedicineActivator implements BundleActivator {
 
@@ -22,7 +23,7 @@ public class MedicineActivator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		
 		serviceReference = context.getServiceReference(MedicineDao.class.getName());
-		MedicineDao medicineDao = (MedicineDao) context.getService(serviceReference);
+		MedicineDao medicineDao = (MedicineDaoImpl) context.getService(serviceReference);
 		
 		System.out.println("Medicine Publisher Started !!!");
 		MedicinePublish publisherService = new MedicinePublishImpl(medicineDao);

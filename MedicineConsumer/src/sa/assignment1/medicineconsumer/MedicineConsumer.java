@@ -14,4 +14,7 @@ public interface MedicineConsumer {
 
 	public void deleteById();
 	
+	public void medicine();
+	
+	public void patient();
 }
