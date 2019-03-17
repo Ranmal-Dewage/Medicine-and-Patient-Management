@@ -23,14 +23,19 @@ public class MedicinePublishImpl implements MedicinePublish {
 		medicineModel.put("medicineId", scanner.nextLine());
 		System.out.print("Enter medicine name        : ");
 		medicineModel.put("medicineName", scanner.nextLine());
+		System.out.print("Enter medicine description : ");
+		medicineModel.put("medicineDescription", scanner.nextLine());
 		System.out.print("Enter medicine quantity    : ");
 		medicineModel.put("medicineQuantity", Integer.toString(scanner.nextInt()));
 		System.out.print("Enter medicine unit price  : ");
 		medicineModel.put("unitPrice", Double.toString(scanner.nextDouble()));
-		System.out.print("Enter medicine description : ");
-		medicineModel.put("medicineDescription", scanner.nextLine());
-		System.out.println("");
-		medicineDao.save(medicineModel);
+		
+		System.out.print(" ");
+		if (medicineDao.save(medicineModel)) {
+			System.out.println("Medicine added successfully !!! ");
+		} else {
+			System.out.println("Sorry something went wrong !!! ");			
+		}
 	}
 
 	@Override

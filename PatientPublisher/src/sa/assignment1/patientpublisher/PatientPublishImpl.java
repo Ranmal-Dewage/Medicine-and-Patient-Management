@@ -19,21 +19,26 @@ public class PatientPublishImpl implements PatientPublish {
 	@Override
 	public void add() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter patient id: ");
+		System.out.print("Enter patient id: ");
 		patientModel.put("patientId", scanner.nextLine());
-		System.out.println("Enter patient name: ");
+		System.out.print("Enter patient name: ");
 		patientModel.put("patientName", scanner.nextLine());
-		System.out.println("Enter patient age: ");
+		System.out.print("Enter patient age: ");
 		patientModel.put("patientAge", scanner.nextLine());
-		System.out.println("Enter patient illness: ");
+		System.out.print("Enter patient illness: ");
 		patientModel.put("patientIllness", scanner.nextLine());
 		System.out.println("");
-		patientDao.save(patientModel);
+		
+		if (patientDao.save(patientModel)) {
+			System.out.println("Patient added successfully !!! ");
+		} else {
+			System.out.println("Sorry something went wrong !!! ");			
+		}
 	}
 
 	@Override
 	public void get() {
-		System.out.println("Enter patient id: ");
+		System.out.print("Enter patient id: ");
 		Scanner scanner = new Scanner(System.in);
 
 		String id = scanner.nextLine();
@@ -51,7 +56,7 @@ public class PatientPublishImpl implements PatientPublish {
 	@Override
 	public void deleteById() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter patient id: ");
+		System.out.print("Enter patient id: ");
 		String id = scanner.nextLine();
 
 		if (patientDao.deleteById(id)) {
