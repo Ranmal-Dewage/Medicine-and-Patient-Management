@@ -3,14 +3,14 @@ package sa.assignment1.medicineconsumer;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
-import org.osgi.framework.ServiceRegistration;
 
 import sa.assignment1.medicinepublisher.MedicinePublish;
-import sa.assignment1.medicinepublisher.MedicinePublishImpl;
+import sa.assignment1.patientpublisher.PatientPublish;
 
 public class ConsumerActivator implements BundleActivator {
 
-	ServiceReference<?> serviceReference;
+	ServiceReference<?> medicineServiceReference;
+	ServiceReference<?> patientServiceReference;
 
 	/*
 	 * (non-Javadoc)
@@ -20,11 +20,16 @@ public class ConsumerActivator implements BundleActivator {
 	 */
 	public void start(BundleContext context) throws Exception {
 		System.out.println("Medicine Consumer Started !!!");
-		serviceReference = context.getServiceReference(MedicinePublish.class.getName());
-		MedicinePublish medicinePublish = (MedicinePublish) context.getService(serviceReference);
 		
-		MedicineConsumer medicineConsumer = new MedicineConsumerImpl(medicinePublish);
+		medicineServiceReference = context.getServiceReference(MedicinePublish.class.getName());
+		MedicinePublish medicinePublish = (MedicinePublish) context.getService(medicineServiceReference);
+		
+		patientServiceReference = context.getServiceReference(PatientPublish.class.getName());
+		PatientPublish patientPublish = (PatientPublish) context.getService(patientServiceReference);
+		
+		MedicineConsumer medicineConsumer = new MedicineConsumerImpl(medicinePublish, patientPublish);
 		medicineConsumer.init();
+		stop(context);
 	}
 
 	/*
@@ -35,7 +40,8 @@ public class ConsumerActivator implements BundleActivator {
 	 */
 	public void stop(BundleContext context) throws Exception {
 		System.out.println("Good Bye !!");
-		context.ungetService(serviceReference);
+		context.ungetService(medicineServiceReference);
+		context.ungetService(patientServiceReference);
 	}
 
 }

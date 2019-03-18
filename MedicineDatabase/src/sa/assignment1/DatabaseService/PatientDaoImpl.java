@@ -13,15 +13,15 @@ import java.util.Objects;
  * @Description
  * @Version
  */
-public class MedicineDaoImpl implements MedicineDao {
+public class PatientDaoImpl implements PatientDao {
 
 	private static Map<String, Map<String, String>> dataList = new HashMap<>();
 
 	@Override
 	public boolean save(Map<String, String> data) {
-		String medicineId = data.get("medicineId");
+		String patientId = data.get("patientId");
 		try {
-			dataList.put(medicineId, new HashMap<String, String>(data));
+			dataList.put(patientId, new HashMap<String, String>(data));
 			return true;
 		} catch (Exception e) {
 			System.err.println(e);
@@ -35,10 +35,10 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public Map<String, String> findById(String medicineId) {
+	public Map<String, String> findById(String patientId) {
 		Map<String, String> data = new HashMap<>();
 		try {
-			data = dataList.get(medicineId);
+			data = dataList.get(patientId);
 			if(Objects.isNull(data)){
 				return null;
 			}
@@ -49,10 +49,10 @@ public class MedicineDaoImpl implements MedicineDao {
 	}
 
 	@Override
-	public boolean deleteById(String medicineId) {
+	public boolean deleteById(String patientId) {
 		try {
-			if(Objects.nonNull(dataList.get(medicineId))){				
-				dataList.remove(medicineId);
+			if(Objects.nonNull(dataList.get(patientId))){				
+				dataList.remove(patientId);
 				return true;
 			}
 		} catch (Exception e) {

@@ -17,7 +17,9 @@ public class DatabaseActivator implements BundleActivator {
 	public void start(BundleContext context) {
 		System.out.println("Database Publisher Started !!!");
 		MedicineDao medicineDao = new MedicineDaoImpl();
+		PatientDao patientDao = new PatientDaoImpl();
 		publishServiceRegistration = context.registerService(MedicineDao.class.getName(), medicineDao, null);
+		publishServiceRegistration = context.registerService(PatientDao.class.getName(), patientDao, null);
 	}
 
 	/*

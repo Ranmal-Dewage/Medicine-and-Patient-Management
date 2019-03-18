@@ -1,17 +1,16 @@
-package sa.assignment1.medicinepublisher;
+package sa.assignment1.patientpublisher;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import sa.assignment1.DatabaseService.MedicineDao;
-import sa.assignment1.DatabaseService.MedicineDaoImpl;
+import sa.assignment1.DatabaseService.PatientDao;
+import sa.assignment1.DatabaseService.PatientDaoImpl;
 
-public class MedicineActivator implements BundleActivator {
-
+public class PatientActivator implements BundleActivator {
 	ServiceRegistration<?> publishServiceRegistration;
-	
+
 	ServiceReference<?> serviceReference;
 
 	/*
@@ -21,14 +20,12 @@ public class MedicineActivator implements BundleActivator {
 	 * BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
-		
-		serviceReference = context.getServiceReference(MedicineDao.class.getName());
-		MedicineDao medicineDao = (MedicineDaoImpl) context.getService(serviceReference);
-		
-		System.out.println("Medicine Publisher Started !!!");
-		MedicinePublish publisherService = new MedicinePublishImpl(medicineDao);
-		publishServiceRegistration = context.registerService(MedicinePublish.class.getName(), publisherService, null);
-		
+		serviceReference = context.getServiceReference(PatientDao.class.getName());
+		PatientDao patientDao = (PatientDaoImpl) context.getService(serviceReference);
+
+		System.out.println("Patient Publisher Started !!!");
+		PatientPublish publisherService = new PatientPublishImpl(patientDao);
+		publishServiceRegistration = context.registerService(PatientPublish.class.getName(), publisherService, null);
 	}
 
 	/*
@@ -38,7 +35,7 @@ public class MedicineActivator implements BundleActivator {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
-		System.out.println("Medicine Publisher Stoped !!!");
+		System.out.println("Patient Publisher Stoped !!!");
 		publishServiceRegistration.unregister();
 		context.ungetService(serviceReference);
 	}
