@@ -10,27 +10,27 @@ The system demonstrated in this report is a medicine information and patient inf
 
 <img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0">
 Fig1: Demonstrates how a user can navigate to use the medicine service
-<br>
+  <br />
 
 <img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" >
 Fig 2: Process of adding medicine to the system  
-<br>
+  <br />
  
 <img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
 Fig3:Process of displaying medicine with specific medicine id  
-<br />
+  <br />
  
 <img src="https://i.ibb.co/ZTCTyD0/Capture.png" alt="Capture" border="0">
 Fig4: Process of increasing quantity of a specific medicine  
-<br />
+  <br />
  
 <img src="https://i.ibb.co/kDGdP5w/Capture.png" alt="Capture" border="0">
 Fig5: Process of deducting a quantity of a specific medicine  
-<br />
+  <br />
 
 <img src="https://i.ibb.co/2y3Vrnz/Capture.png" alt="Capture" border="0">
 Fig6: Process of removing a medicine entry from the system entirely  
-<br />
+  <br />
 
 ##### Usage of Paitient Service
 
