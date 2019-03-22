@@ -10,40 +10,51 @@ The system demonstrated in this report is a medicine information and patient inf
 
 <img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0">
 Fig1: Demonstrates how a user can navigate to use the medicine service
+
  
 <img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" border="0">
 Fig 2: Process of adding medicine to the system
+
  
 <img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
 Fig3:Process of displaying medicine with specific medicine id
+
  
 <img src="https://i.ibb.co/ZTCTyD0/Capture.png" alt="Capture" border="0">
 Fig4: Process of increasing quantity of a specific medicine
+
  
 <img src="https://i.ibb.co/kDGdP5w/Capture.png" alt="Capture" border="0">
 Fig5: Process of deducting a quantity of a specific medicine
 
+
 <img src="https://i.ibb.co/2y3Vrnz/Capture.png" alt="Capture" border="0">
 Fig6: Process of removing a medicine entry from the system entirely
+
 
 ##### Usage of Paitient Service
 
 <img src="https://i.ibb.co/FXcBV2R/Capture.png" alt="Capture" border="0">
 Fig7: Demonstrate how to navigate to use the paitent service
 
+
 <img src="https://i.ibb.co/MgvLNhP/Capture.png" alt="Capture" border="0">
 Fig8:Process of adding a paitent to the system
+
 
 <img src="https://i.ibb.co/xgnrFSm/Capture.png" alt="Capture" border="0">
 Fig9:Process of displaying a specific paitent with patient id
 
+
 <img src="https://i.ibb.co/N6VGj6J/Capture.png" alt="Capture" border="0">
 Fig10: Process of removing a paitent with specific paitent id
+
 
 #### After updating medicine service to new version
 
 <img src="https://i.ibb.co/J589ypG/Capture.png" alt="Capture" border="0">
 Fig11: Process of adding medicine using the new version
+
 
 <img src="https://i.ibb.co/tbX6QNn/Capture.png" alt="Capture" border="0">
 Fig12: Process of displaying medicine using the new version
