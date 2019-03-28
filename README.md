@@ -50,13 +50,3 @@ Fig9:Process of displaying a specific paitent with patient id
 Fig10: Process of removing a paitent with specific paitent id  
 <p></p><br />
 
-#### After updating medicine service to new version
-
-<img src="https://i.ibb.co/J589ypG/Capture.png" alt="Capture" border="0">
-Fig11: Process of adding medicine using the new version  
-<p></p><br />
-
-<img src="https://i.ibb.co/tbX6QNn/Capture.png" alt="Capture" border="0">
-Fig12: Process of displaying medicine using the new version  
-<p></p><br />
-
