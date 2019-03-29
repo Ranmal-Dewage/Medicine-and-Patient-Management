@@ -5,7 +5,12 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import sa.assignment1.medicinepublisher.MedicinePublish;
+import sa.assignment1.medicinepublisher.MedicinePublishImpl;
 import sa.assignment1.patientpublisher.PatientPublish;
+import sa.assignment1.patientpublisher.PatientPublishImpl;
+
+
+
 
 public class ConsumerActivator implements BundleActivator {
 
@@ -22,10 +27,10 @@ public class ConsumerActivator implements BundleActivator {
 		System.out.println("Medicine Consumer Started !!!");
 		
 		medicineServiceReference = context.getServiceReference(MedicinePublish.class.getName());
-		MedicinePublish medicinePublish = (MedicinePublish) context.getService(medicineServiceReference);
+		MedicinePublish medicinePublish = (MedicinePublishImpl) context.getService(medicineServiceReference);
 		
 		patientServiceReference = context.getServiceReference(PatientPublish.class.getName());
-		PatientPublish patientPublish = (PatientPublish) context.getService(patientServiceReference);
+		PatientPublish patientPublish = (PatientPublishImpl) context.getService(patientServiceReference);
 		
 		MedicineConsumer medicineConsumer = new MedicineConsumerImpl(medicinePublish, patientPublish);
 		medicineConsumer.init();

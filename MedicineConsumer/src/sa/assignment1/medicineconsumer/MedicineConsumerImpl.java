@@ -51,30 +51,30 @@ public class MedicineConsumerImpl implements MedicineConsumer {
 		System.out.print("Please enter a number : ");
 	}
 
-	@Override
-	public void add() {
-		medicinePublish.add();
-	}
-
-	@Override
-	public void deduct() {
-		medicinePublish.deduct();
-	}
-
-	@Override
-	public void increase() {
-		medicinePublish.increase();
-	}
-
-	@Override
-	public void get() {
-		medicinePublish.get();
-	}
-
-	@Override
-	public void deleteById() {
-		medicinePublish.deleteById();
-	}
+//	@Override
+//	public void add() {
+//		medicinePublish.add();
+//	}
+//
+//	@Override
+//	public void deduct() {
+//		medicinePublish.deduct();
+//	}
+//
+//	@Override
+//	public void increase() {
+//		medicinePublish.increase();
+//	}
+//
+//	@Override
+//	public void get() {
+//		medicinePublish.get();
+//	}
+//
+//	@Override
+//	public void deleteById() {
+//		medicinePublish.deleteById();
+//	}
 
 	@Override
 	public void medicine() {
@@ -97,19 +97,19 @@ public class MedicineConsumerImpl implements MedicineConsumer {
 
 			switch (input) {
 			case 1:
-				add();
+				medicinePublish.add();
 				break;
 			case 2:
-				get();
+				medicinePublish.get();
 				break;
 			case 3:
-				deduct();
+				medicinePublish.deduct();
 				break;
 			case 4:
-				increase();
+				medicinePublish.increase();
 				break;
 			case 5:
-				deleteById();
+				medicinePublish.deleteById();
 				break;
 			default:
 				System.out.println("Invalid input!!!");

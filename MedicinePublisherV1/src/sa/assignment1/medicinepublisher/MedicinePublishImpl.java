@@ -60,11 +60,11 @@ public class MedicinePublishImpl implements MedicinePublish {
 			data.put("medicineQuantity", Integer.toString(newQuantity));
 
 			if (medicineDao.save(data)) {
-				System.out.println("New deduced sucessfully !");
+				System.out.println("Deduction sucessfully !!!");
 				System.out.println("");
 			}
 		} else {
-			System.out.println("No medicine record found !!!");
+			System.out.println("Medicine id:" + id + " not found !!!");
 			System.out.println("");
 		}
 
@@ -72,7 +72,7 @@ public class MedicinePublishImpl implements MedicinePublish {
 
 	@Override
 	public void get() {
-		System.out.println("Enter medicine id: ");
+		System.out.print("Enter medicine id: ");
 		Scanner scanner = new Scanner(System.in);
 
 		String id = scanner.nextLine();
@@ -82,7 +82,7 @@ public class MedicinePublishImpl implements MedicinePublish {
 			data.forEach((key, value) -> System.out.println(key + ":" + value));
 			System.out.println("");
 		} else {
-			System.out.println("No medicine record found !!!");
+			System.out.println("Medicine id:" + id + " not found !!!");
 			System.out.println("");
 		}
 	}
@@ -94,10 +94,10 @@ public class MedicinePublishImpl implements MedicinePublish {
 		String id = scanner.nextLine();
 
 		if (medicineDao.deleteById(id)) {
-			System.out.println("Medicine id:" + id + " removed sucessfully !");
+			System.out.println("Medicine id:" + id + " removed sucessfully !!!");
 			System.out.println("");
 		} else {
-			System.out.println("Medicine id:" + id + " not found !");
+			System.out.println("Medicine id:" + id + " not found !!!");
 			System.out.println("");
 		}
 	}
@@ -116,17 +116,17 @@ public class MedicinePublishImpl implements MedicinePublish {
 
 		data = medicineDao.findById(id);
 
-		if (medicineDao.deleteById(id)) {
+		if (Objects.nonNull(data)) {
 			currentQuantity = Integer.parseInt(data.get("medicineQuantity"));
 			newQuantity = currentQuantity + quantity;
 			data.put("medicineQuantity", Integer.toString(newQuantity));
 
 			if (medicineDao.save(data)) {
-				System.out.println("New increased sucessfully !");
+				System.out.println("Increment sucessfully !!!");
 				System.out.println("");
 			}
 		} else {
-			System.out.println("Medicine id:" + id + " not found !");
+			System.out.println("Medicine id:" + id + " not found !!!");
 			System.out.println("");
 		}
 	}

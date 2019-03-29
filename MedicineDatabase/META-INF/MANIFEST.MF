@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: MedicineDatabase
-Bundle-SymbolicName: MedicineDatabase
+Bundle-Name: DatabaseService
+Bundle-SymbolicName: DatabaseService
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: sa.assignment1.DatabaseService.DatabaseActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

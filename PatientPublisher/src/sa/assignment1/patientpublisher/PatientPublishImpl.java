@@ -48,7 +48,7 @@ public class PatientPublishImpl implements PatientPublish {
 			data.forEach((key, value) -> System.out.println(key + ":" + value));
 			System.out.println("");
 		} else {
-			System.out.println("No patient record found !!!");
+			System.out.println("No patient records found !!!");
 			System.out.println("");
 		}
 	}

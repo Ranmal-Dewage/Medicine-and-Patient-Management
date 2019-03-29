@@ -6,12 +6,6 @@ package sa.assignment1.DatabaseService;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author vimukthi_r
- * @Date Mar 7, 2019
- * @Description
- * @Version
- */
 public interface PatientDao {
 
 	public boolean save(Map<String, String> data);
