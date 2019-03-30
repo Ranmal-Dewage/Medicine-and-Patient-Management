@@ -8,7 +8,7 @@ The system demonstrated in this report is a medicine information and patient inf
 
 #### Usage of medicine Service
 
-<img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0">
+<img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0" align="center">
 Fig1: Demonstrates how a user can navigate to use the medicine service
 <p></p><br />
 
