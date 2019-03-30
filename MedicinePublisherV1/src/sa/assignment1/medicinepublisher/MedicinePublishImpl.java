@@ -33,8 +33,10 @@ public class MedicinePublishImpl implements MedicinePublish {
 		
 		if (medicineDao.save(medicineModel)) {
 			System.out.println("Medicine added successfully !!! ");
+			System.out.println("");
 		} else {
-			System.out.println("Sorry something went wrong !!! ");			
+			System.out.println("Sorry something went wrong !!! ");	
+			System.out.println("");
 		}
 	}
 

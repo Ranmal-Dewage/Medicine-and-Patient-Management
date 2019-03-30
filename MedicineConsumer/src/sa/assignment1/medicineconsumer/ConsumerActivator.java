@@ -23,6 +23,8 @@ public class ConsumerActivator implements BundleActivator {
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.
 	 * BundleContext)
 	 */
+	
+	
 	public void start(BundleContext context) throws Exception {
 		System.out.println("Medicine Consumer Started !!!");
 		
