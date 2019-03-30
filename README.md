@@ -8,15 +8,15 @@ The system demonstrated in this report is a medicine information and patient inf
 
 #### Usage of medicine Service
 
-<img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0" style="align-items:center">
+<img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
 Fig1: Demonstrates how a user can navigate to use the medicine service
 <p></p><br />
 
-<img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" >
+<img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
 Fig 2: Process of adding medicine to the system  
 <p></p><br />
  
-<img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
+<img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
 Fig3:Process of displaying medicine with specific medicine id  
 <p></p><br />
  
