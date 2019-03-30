@@ -25,7 +25,7 @@ public class MedicineActivator implements BundleActivator {
 		serviceReference = context.getServiceReference(MedicineDao.class.getName());
 		MedicineDao medicineDao = (MedicineDaoImpl) context.getService(serviceReference);
 		
-		System.out.println("Medicine Publisher Started !!!");
+		System.out.println("Medicine Publisher New Version Started !!!");
 		MedicinePublish publisherService = new MedicinePublishImpl(medicineDao);
 		publishServiceRegistration = context.registerService(MedicinePublish.class.getName(), publisherService, null);
 		
@@ -38,7 +38,7 @@ public class MedicineActivator implements BundleActivator {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
-		System.out.println("Medicine Publisher Stoped !!!");
+		System.out.println("Medicine Publisher New Version Stopped !!!");
 		publishServiceRegistration.unregister();
 		context.ungetService(serviceReference);
 	}

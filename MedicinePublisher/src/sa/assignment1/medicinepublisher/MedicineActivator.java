@@ -38,7 +38,7 @@ public class MedicineActivator implements BundleActivator {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
-		System.out.println("Medicine Publisher Stoped !!!");
+		System.out.println("Medicine Publisher Stopped !!!");
 		publishServiceRegistration.unregister();
 		context.ungetService(serviceReference);
 	}

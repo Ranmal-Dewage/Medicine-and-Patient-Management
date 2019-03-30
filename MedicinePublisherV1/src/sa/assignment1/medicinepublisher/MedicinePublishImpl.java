@@ -29,8 +29,8 @@ public class MedicinePublishImpl implements MedicinePublish {
 		medicineModel.put("medicineQuantity", Integer.toString(scanner.nextInt()));
 		System.out.print("Enter medicine unit price  : ");
 		medicineModel.put("unitPrice", Double.toString(scanner.nextDouble()));
+		System.out.println(" ");
 		
-		System.out.print(" ");
 		if (medicineDao.save(medicineModel)) {
 			System.out.println("Medicine added successfully !!! ");
 		} else {

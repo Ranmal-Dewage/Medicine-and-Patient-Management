@@ -60,10 +60,10 @@ public class PatientPublishImpl implements PatientPublish {
 		String id = scanner.nextLine();
 
 		if (patientDao.deleteById(id)) {
-			System.out.println("Patient id:" + id + " removed sucessfully !");
+			System.out.println("Patient id:" + id + " removed sucessfully !!!");
 			System.out.println("");
 		} else {
-			System.out.println("Patient id:" + id + " not found !");
+			System.out.println("Patient id:" + id + " not found !!!");
 			System.out.println("");
 		}
 	}
