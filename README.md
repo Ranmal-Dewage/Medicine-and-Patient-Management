@@ -12,7 +12,7 @@ Figure_1: Overview of the Medicine and Patient Management System
 Figure_2: Component Diagram of the Medicine and Patient Management System
 <p></p><br />
 
-### Deployment Guide
+## Deployment Guide
 
 <img src="https://i.ibb.co/zQJNjGp/Untitled.png" alt="Untitled" border="0">
 Figure_1: Run Configuration for Medicine Publisher Version 1.0.1
@@ -32,7 +32,7 @@ Figure_3: Bundle starting process
 Figure_4: After starting bundles
 <p></p><br />
 
-### Sample screenshots
+## Sample screenshots
 
 #### Usage of medicine Service
 
