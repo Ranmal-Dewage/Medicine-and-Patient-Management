@@ -4,11 +4,11 @@
 
 The system demonstrated in this report is a medicine and patient information management system where a consumer is prompt to select medicine management or patient management. In Medicine Management you can enter new medicine detail, add or deduct medicine quantity, search particular medicine detail, delete medicine details from the system which is stored in a HashMap inside the Database Bundle but if you want, we can further improve this system by storing data in HapMap to a Document or Relational database but for simplicity we have use a HashMap to store data. You can perform enter new patient detail, search particular patient detail, delete patient details from the Patient Management. We have two versions in Medicine Publisher, one is improved version and other one is the old version. In the new version you are prompt to enter a new detail called medicine description which is not in the older version. The diagram shown below demonstrates how the consumer and service publishers interact with each other.
 
-<img src="https://i.ibb.co/NSNPCzS/Untitled.png" alt="Untitled" border="0">
+<img src="https://i.ibb.co/2kFh1VK/Untitled.png" alt="Untitled" border="0">
 Figure_1: Overview of the Medicine and Patient Management System
 <p></p><br />
 
-<img src="https://i.ibb.co/nwNJyXw/Untitled.png" alt="Untitled" border="0">
+<img src="https://i.ibb.co/yRqts7H/Untitled.png" alt="Untitled" border="0">
 Figure_2: Component Diagram of the Medicine and Patient Management System
 <p></p><br />
 
@@ -40,11 +40,11 @@ Figure_4: After starting bundles
 Fig1: Demonstrates how a user can navigate to use the medicine service
 <p></p><br />
 
-<img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture">
+<img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" border="0">
 Fig 2: Process of adding medicine to the system  
 <p></p><br />
  
-<img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0"">
+<img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
 Fig3:Process of displaying medicine with specific medicine id  
 <p></p><br />
  
