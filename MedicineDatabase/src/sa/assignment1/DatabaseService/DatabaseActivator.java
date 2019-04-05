@@ -29,7 +29,7 @@ public class DatabaseActivator implements BundleActivator {
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) {
-		System.out.println("Database Publisher Stoped !!!");
+		System.out.println("Database Publisher Stopped !!!");
 		publishServiceRegistration.unregister();
 	}
 

@@ -12,11 +12,11 @@ The system demonstrated in this report is a medicine information and patient inf
 Fig1: Demonstrates how a user can navigate to use the medicine service
 <p></p><br />
 
-<img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" >
+<img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture">
 Fig 2: Process of adding medicine to the system  
 <p></p><br />
  
-<img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
+<img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0"">
 Fig3:Process of displaying medicine with specific medicine id  
 <p></p><br />
  

@@ -7,12 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * @author vimukthi_r
- * @Date Mar 7, 2019
- * @Description
- * @Version
- */
 public class MedicineDaoImpl implements MedicineDao {
 
 	private static Map<String, Map<String, String>> dataList = new HashMap<>();
