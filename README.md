@@ -1,8 +1,36 @@
-# Software Architecture Assignment 1
+# Medicine and Patient Management System
 
 ## Introduction:
 
-The system demonstrated in this report is a medicine information and patient information management system where a consumer is prompt to select medicine management or patient management. In Medicine Management you can enter new medicine detail, add or deduct medicine quantity, search particular medicine detail, delete medicine details from the system which is stored in a Hash Map inside the Database Bundle but we can improve this store data to Document or Relational database. You can perform enter new patient detail, search particular patient detail, delete patient details from the Patient Management. We have two versions in Medicine and Patient Publisher, one is improved version and other one is the old version. In the new version you are prompt to enter new details than the older version.
+The system demonstrated in this report is a medicine and patient information management system where a consumer is prompt to select medicine management or patient management. In Medicine Management you can enter new medicine detail, add or deduct medicine quantity, search particular medicine detail, delete medicine details from the system which is stored in a HashMap inside the Database Bundle but if you want, we can further improve this system by storing data in HapMap to a Document or Relational database but for simplicity we have use a HashMap to store data. You can perform enter new patient detail, search particular patient detail, delete patient details from the Patient Management. We have two versions in Medicine Publisher, one is improved version and other one is the old version. In the new version you are prompt to enter a new detail called medicine description which is not in the older version. The diagram shown below demonstrates how the consumer and service publishers interact with each other.
+
+<img src="https://i.ibb.co/NSNPCzS/Untitled.png" alt="Untitled" border="0">
+Figure_1: Overview of the Medicine and Patient Management System
+<p></p><br />
+
+<img src="https://i.ibb.co/nwNJyXw/Untitled.png" alt="Untitled" border="0">
+Figure_2: Component Diagram of the Medicine and Patient Management System
+<p></p><br />
+
+### Deployment Guide
+
+<img src="https://i.ibb.co/zQJNjGp/Untitled.png" alt="Untitled" border="0">
+Figure_1: Run Configuration for Medicine Publisher Version 1.0.1
+<p></p><br />
+
+** When you run the configuration above sometimes bundles may start out of order and some bundle exception may occur, if something like that happens stop all 4 bundles and start them again in given order below.  ** 
+
+<img src="https://i.ibb.co/kqBj10z/Untitled.png" alt="Untitled" border="0">
+Figure_2: Before starting bundles
+<p></p><br />
+
+<img src="https://i.ibb.co/j5hNyLb/Untitled.png" alt="Untitled" border="0">
+Figure_3: Bundle starting process
+<p></p><br />
+
+<img src="https://i.ibb.co/WPHLsvR/Untitled.png" alt="Untitled" border="0">
+Figure_4: After starting bundles
+<p></p><br />
 
 ### Sample screenshots
 
