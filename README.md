@@ -88,3 +88,16 @@ Fig11: Process of adding medicine using the new version
 Fig12: Process of displaying medicine using the new version  
 <p></p><br />
 
+
+#### Developed by Team VIKING RAIDERS;
+* Ranmal Dewage
+* Tenusha Guruge
+* Vimukthi Rajapaksha
+* Aravinda Kulasooriya
+
+
+## Copyright
+
+(C) 2019 Ranmal Dewage (ranmal.b.dewage@gmail.com)
+<br>
+[ranmaldewage.wordpress.com](https://ranmaldewage.wordpress.com)
