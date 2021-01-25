@@ -45,7 +45,7 @@ Fig 2: Process of adding medicine to the system
 <p></p><br />
  
 <img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
-Fig 3:Process of displaying medicine with specific medicine id  
+Fig 3: Process of displaying medicine with specific medicine id  
 <p></p><br />
  
 <img src="https://i.ibb.co/ZTCTyD0/Capture.png" alt="Capture" border="0">
@@ -67,11 +67,11 @@ Fig 7: Demonstrate how to navigate to use the paitent service
 <p></p><br />
 
 <img src="https://i.ibb.co/MgvLNhP/Capture.png" alt="Capture" border="0">
-Fig 8:Process of adding a paitent to the system  
+Fig 8: Process of adding a paitent to the system  
 <p></p><br />
 
 <img src="https://i.ibb.co/xgnrFSm/Capture.png" alt="Capture" border="0">
-Fig 9:Process of displaying a specific paitent with patient id  
+Fig 9: Process of displaying a specific paitent with patient id  
 <p></p><br />
 
 <img src="https://i.ibb.co/N6VGj6J/Capture.png" alt="Capture" border="0">
