@@ -37,7 +37,7 @@ Figure_4: After starting bundles
 #### Usage of medicine Service
 
 <img src="https://i.ibb.co/Hdyg8Ry/Capture.png" alt="Capture" border="0">
-Fig1: Demonstrates how a user can navigate to use the medicine service
+Fig 1: Demonstrates how a user can navigate to use the medicine service
 <p></p><br />
 
 <img src="https://i.ibb.co/c8TQsGP/Capture.png" alt="Capture" border="0">
@@ -45,47 +45,47 @@ Fig 2: Process of adding medicine to the system
 <p></p><br />
  
 <img src="https://i.ibb.co/C5y396q/Capture.png" alt="Capture" border="0">
-Fig3:Process of displaying medicine with specific medicine id  
+Fig 3:Process of displaying medicine with specific medicine id  
 <p></p><br />
  
 <img src="https://i.ibb.co/ZTCTyD0/Capture.png" alt="Capture" border="0">
-Fig4: Process of increasing quantity of a specific medicine  
+Fig 4: Process of increasing quantity of a specific medicine  
 <p></p><br />
  
 <img src="https://i.ibb.co/kDGdP5w/Capture.png" alt="Capture" border="0">
-Fig5: Process of deducting a quantity of a specific medicine  
+Fig 5: Process of deducting a quantity of a specific medicine  
 <p></p><br />
 
 <img src="https://i.ibb.co/2y3Vrnz/Capture.png" alt="Capture" border="0">
-Fig6: Process of removing a medicine entry from the system entirely  
+Fig 6: Process of removing a medicine entry from the system entirely  
 <p></p><br />
 
 ##### Usage of Paitient Service
 
 <img src="https://i.ibb.co/FXcBV2R/Capture.png" alt="Capture" border="0">
-Fig7: Demonstrate how to navigate to use the paitent service  
+Fig 7: Demonstrate how to navigate to use the paitent service  
 <p></p><br />
 
 <img src="https://i.ibb.co/MgvLNhP/Capture.png" alt="Capture" border="0">
-Fig8:Process of adding a paitent to the system  
+Fig 8:Process of adding a paitent to the system  
 <p></p><br />
 
 <img src="https://i.ibb.co/xgnrFSm/Capture.png" alt="Capture" border="0">
-Fig9:Process of displaying a specific paitent with patient id  
+Fig 9:Process of displaying a specific paitent with patient id  
 <p></p><br />
 
 <img src="https://i.ibb.co/N6VGj6J/Capture.png" alt="Capture" border="0">
-Fig10: Process of removing a paitent with specific paitent id  
+Fig 10: Process of removing a paitent with specific paitent id  
 <p></p><br />
 
 #### After updating medicine service to new version
 
 <img src="https://i.ibb.co/J589ypG/Capture.png" alt="Capture" border="0">
-Fig11: Process of adding medicine using the new version  
+Fig 11: Process of adding medicine using the new version  
 <p></p><br />
 
 <img src="https://i.ibb.co/tbX6QNn/Capture.png" alt="Capture" border="0">
-Fig12: Process of displaying medicine using the new version  
+Fig 12: Process of displaying medicine using the new version  
 <p></p><br />
 
 
